@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrar Plantão</title>
+</head>
+<body>
+    <h1>Registrar Plantão</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Adicionar</button>
+    </form>    
+
+    <h2>Plantoes Registrados</h2>
+    <ul>
+        {% for plantao in plantoes %}
+        <li>
+            {{plantao.nome_medico}} {{ plantao.data|date:"d/m/Y" }} ({{ plantao.data|date:"l" }}) – das {{ plantao.hora_inicio }} às {{ plantao.hora_fim }}
+        </li>  
+        {% endfor %}
+    </ul>
+    <br>
+    <br>
+    <h2>Totais Calculados</h2>
+    <ul>
+        {% for chave, valor in valores_totais.items %}
+            <li>{{ chave }}: R$ {{ valor|floatformat:2 }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Total Geral: R$ {{ total_geral|floatformat:2 }}</h3>
+</body>
+</html>

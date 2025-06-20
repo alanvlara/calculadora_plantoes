@@ -1,0 +1,32 @@
+# Ignore a pasta da virtualenv
+venv/
+env/
+*.env
+
+# Bytecode compilado Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Arquivos de banco de dados SQLite
+db.sqlite3
+
+# Arquivos de logs
+*.log
+
+# Pasta migrations já versionadas geralmente
+*/migrations/__pycache__/
+*/migrations/*.pyc
+
+# Configurações do editor (exemplo VS Code)
+.vscode/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos estáticos coletados
+staticfiles/
+
+# Pasta media (uploads)
+media/
